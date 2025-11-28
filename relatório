@@ -1,0 +1,33 @@
+Arquitetura Back-End: 
+Objetivo do relatório: Descrever como será feito o projeto em Back-End, justificando cada ponto da sua escolha (Isso deverá refletir em seu trabalho)
+
+1) Escolha da linguagem: Python com o framework Flask.
+Motivo: Simplicidade, afinidade com a linguagem e a linguagem força um código limpo e organizado atendendo um dos requisitos.
+
+2) Estrutura Organização das Funções:
+O código é organizado em arquivos (.py), onde cada um tem seu trabalho específico.
+
+Descrição de cada módulo:
+app.py: arquivo principal onde vai registrar tidas as rotas.
+modelos.py: onde vai guardar todas as 11 tabelas do Firebase.
+conexao.py: apenas vai cuidar da conexão e a leitura dos dados no Firebase.
+servico_alerta.py: contendo a lógica que verifica se a CPU simulada vai ser ultrapassada e o status dos periféricos como webcam e o microfone.
+gerador_simulacao.py: Cria dados falsos de CPU/RAM para simular o funcionamento dos computadores.
+
+Justificativa: Essa organização faz com que as funções relacionadas ao banco de dados fiquem separadas das funções lógicas e das funções de simulação, tornando o projeto extremamente fácil e organizado.
+
+
+ Relatório de Dados (Firebase): 
+ Objetivo do relatório: justificar a escolha do firebase e como às 11 tabelas do projeto foram estruturadas no banco de dados.
+
+1) Tecnologia escolhida: Firebase (Firestore).
+Motivo: O Firebase é a escolha ideal para um sistema de monitoramento, por conta de ser um banco de dados NoSQL.
+
+2) Estrutura da 11 tabelas:
+	As 11 tabelas foram projetadas como uma parte separada do Firebase. A topologia foi feita para garantir performance nas partes mais visitadas do sistema como por exemplo a visualização das webcams.
+
+Tabelas com maior tráfego: 
+metrica_tb: armazena todas as leituras da CPU/RAM, webcam e microfone.
+alertas_tb: Armazena todos os registros disparados pelo sistema.
+
+As demais tabelas são usadas para armazenar dados estáticos.
